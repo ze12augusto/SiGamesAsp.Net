@@ -1,19 +1,16 @@
 ﻿@model IEnumerable<SiGames.Models.pessoa>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cadastro de  pessoas";
 }
 
-<h2>Index</h2>
+<h2>Cadastro de Pessoas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo cadastro", "Create")
 </p>
 <table>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdPessoa)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.DataCadastro)
         </th>
@@ -26,18 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdPessoa)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DataCadastro)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPessoa }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPessoa }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPessoa })
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdPessoa }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdPessoa }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdPessoa })
         </td>
     </tr>
 }

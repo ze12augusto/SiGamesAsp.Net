@@ -1,36 +1,39 @@
 ﻿@model SiGames.Models.pessoa
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2><br>
 
 <fieldset>
-    <legend>pessoa</legend>
+    <legend>Pessoa</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.IdPessoa)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IdPessoa)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DataCadastro)
-    </div>
+         <h3>@Html.DisplayNameFor(model => model.DataCadastro)</h3>
+
+    </div><br>
+
     <div class="display-field">
+
         @Html.DisplayFor(model => model.DataCadastro)
-    </div>
+
+    </div><br>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nome)
-    </div>
+
+         <h3>@Html.DisplayNameFor(model => model.Nome)</h3>
+
+    </div><br>
+    
     <div class="display-field">
+
         @Html.DisplayFor(model => model.Nome)
+
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.IdPessoa }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id=Model.IdPessoa }) |
+    @Html.ActionLink("Voltar a lista", "Index")
 </p>

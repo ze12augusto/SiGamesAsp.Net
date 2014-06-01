@@ -1,24 +1,16 @@
 ﻿@model SiGames.Models.pessoa
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Criar";
 }
 
-<h2>Create</h2>
+<h2>Passo 1</h2><br>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>pessoa</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdPessoa)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdPessoa)
-            @Html.ValidationMessageFor(model => model.IdPessoa)
-        </div>
+        <legend>Pessoa</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.DataCadastro)
@@ -37,13 +29,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Salvar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar a lista", "Index")
 </div>
 
 @section Scripts {
