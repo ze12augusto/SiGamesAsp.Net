@@ -1,0 +1,43 @@
+﻿@model SiGames.Models.produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>produto</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdProduto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdProduto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrecoUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrecoUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TipoProduto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoProduto)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdProduto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

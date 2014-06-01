@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a801cd097444760a95b4cb4b3d1af49" Name="Diagram1">
+        <EntityTypeShape EntityType="sigamesModel.cliente" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.documento" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.endereco" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.fornecedor" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.item_venda" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.parcela" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.parcela_venda" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.pessoa" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.produto" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.telefone" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.tipo_logradouro" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.tipo_telefone" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.tipodocumento" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.uf" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="sigamesModel.venda" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="sigamesModel.FK_Cliente_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Venda_ClientePessoaIdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Documento_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Documento_IdTipoDocumento" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Endereco_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Endereco_IdTipoLogradouro" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Endereco_UF" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Fornecedor_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Item_Venda_IdProduto" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Item_Venda_IdVenda" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Parcela_Venda_ParcelaIdParcela" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Parcela_Venda_VendaIdVenda" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Telefone_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.FK_Telefone_IdTipoTelefone" ManuallyRouted="false" />
+        <AssociationConnector Association="sigamesModel.fornecedor_produto" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

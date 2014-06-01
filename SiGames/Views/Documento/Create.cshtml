@@ -1,0 +1,59 @@
+﻿@model SiGames.Models.documento
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>documento</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdDocumento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdDocumento)
+            @Html.ValidationMessageFor(model => model.IdDocumento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Documento1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Documento1)
+            @Html.ValidationMessageFor(model => model.Documento1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdPessoa, "pessoa")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdPessoa", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdPessoa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoDocumento, "tipodocumento")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdTipoDocumento", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdTipoDocumento)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

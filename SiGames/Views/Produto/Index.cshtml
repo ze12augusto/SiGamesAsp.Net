@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SiGames.Models.produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProduto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoProduto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdProduto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProduto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProduto })
+        </td>
+    </tr>
+}
+
+</table>

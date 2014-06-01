@@ -1,0 +1,43 @@
+﻿@model SiGames.Models.telefone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>telefone</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTelefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdTelefone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Numero)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Numero)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pessoa.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pessoa.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo_telefone.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo_telefone.Descricao)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdTelefone }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

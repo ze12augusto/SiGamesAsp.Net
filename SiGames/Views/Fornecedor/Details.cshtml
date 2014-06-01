@@ -1,0 +1,22 @@
+﻿@model SiGames.Models.fornecedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>fornecedor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pessoa.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pessoa.Nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdPessoa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sigamesModelStoreContainer" CdmEntityContainer="sigamesEntities">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="sigamesModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documento">
+      <EntityTypeMapping TypeName="sigamesModel.documento">
+        <MappingFragment StoreEntitySet="documento">
+          <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+          <ScalarProperty Name="Documento1" ColumnName="Documento" />
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="endereco">
+      <EntityTypeMapping TypeName="sigamesModel.endereco">
+        <MappingFragment StoreEntitySet="endereco">
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="IdTipoLogradouro" ColumnName="IdTipoLogradouro" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fornecedor">
+      <EntityTypeMapping TypeName="sigamesModel.fornecedor">
+        <MappingFragment StoreEntitySet="fornecedor">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item_venda">
+      <EntityTypeMapping TypeName="sigamesModel.item_venda">
+        <MappingFragment StoreEntitySet="item_venda">
+          <ScalarProperty Name="PrecoVenda" ColumnName="PrecoVenda" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+          <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parcela">
+      <EntityTypeMapping TypeName="sigamesModel.parcela">
+        <MappingFragment StoreEntitySet="parcela">
+          <ScalarProperty Name="IdParcela" ColumnName="IdParcela" />
+          <ScalarProperty Name="ValorParcela" ColumnName="ValorParcela" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parcela_venda">
+      <EntityTypeMapping TypeName="sigamesModel.parcela_venda">
+        <MappingFragment StoreEntitySet="parcela_venda">
+          <ScalarProperty Name="DataBaixa" ColumnName="DataBaixa" />
+          <ScalarProperty Name="ParcelaIdParcela" ColumnName="ParcelaIdParcela" />
+          <ScalarProperty Name="DataVencimento" ColumnName="DataVencimento" />
+          <ScalarProperty Name="VendaIdVenda" ColumnName="VendaIdVenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pessoa">
+      <EntityTypeMapping TypeName="sigamesModel.pessoa">
+        <MappingFragment StoreEntitySet="pessoa">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produto">
+      <EntityTypeMapping TypeName="sigamesModel.produto">
+        <MappingFragment StoreEntitySet="produto">
+          <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="TipoProduto" ColumnName="TipoProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telefone">
+      <EntityTypeMapping TypeName="sigamesModel.telefone">
+        <MappingFragment StoreEntitySet="telefone">
+          <ScalarProperty Name="IdTelefone" ColumnName="IdTelefone" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="IdTipoTelefone" ColumnName="IdTipoTelefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_logradouro">
+      <EntityTypeMapping TypeName="sigamesModel.tipo_logradouro">
+        <MappingFragment StoreEntitySet="tipo_logradouro">
+          <ScalarProperty Name="IdTipoLogradouro" ColumnName="IdTipoLogradouro" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_telefone">
+      <EntityTypeMapping TypeName="sigamesModel.tipo_telefone">
+        <MappingFragment StoreEntitySet="tipo_telefone">
+          <ScalarProperty Name="IdTipoTelefone" ColumnName="IdTipoTelefone" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipodocumento">
+      <EntityTypeMapping TypeName="sigamesModel.tipodocumento">
+        <MappingFragment StoreEntitySet="tipodocumento">
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uf">
+      <EntityTypeMapping TypeName="sigamesModel.uf">
+        <MappingFragment StoreEntitySet="uf">
+          <ScalarProperty Name="UF1" ColumnName="UF" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venda">
+      <EntityTypeMapping TypeName="sigamesModel.venda">
+        <MappingFragment StoreEntitySet="venda">
+          <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
+          <ScalarProperty Name="DataVenda" ColumnName="DataVenda" />
+          <ScalarProperty Name="ClientePessoaIdPessoa" ColumnName="ClientePessoaIdPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="fornecedor_produto" TypeName="sigamesModel.fornecedor_produto" StoreEntitySet="fornecedor_produto">
+      <EndProperty Name="fornecedor">
+        <ScalarProperty Name="IdPessoa" ColumnName="IdFornecedor" />
+      </EndProperty>
+      <EndProperty Name="produto">
+        <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

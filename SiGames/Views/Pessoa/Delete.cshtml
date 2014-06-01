@@ -1,0 +1,39 @@
+﻿@model SiGames.Models.pessoa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>pessoa</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdPessoa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdPessoa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataCadastro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataCadastro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

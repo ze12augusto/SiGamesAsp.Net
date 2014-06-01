@@ -1,0 +1,71 @@
+﻿@model SiGames.Models.endereco
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>endereco</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bairro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bairro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cidade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cidade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Logradouro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Logradouro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Numero)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Numero)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pessoa.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pessoa.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo_logradouro.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo_logradouro.Descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.uf1.Estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.uf1.Estado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdEndereco }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sigamesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="sigamesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="cliente" EntityType="sigamesModel.cliente" />
+    <EntitySet Name="documento" EntityType="sigamesModel.documento" />
+    <EntitySet Name="endereco" EntityType="sigamesModel.endereco" />
+    <EntitySet Name="fornecedor" EntityType="sigamesModel.fornecedor" />
+    <EntitySet Name="item_venda" EntityType="sigamesModel.item_venda" />
+    <EntitySet Name="parcela" EntityType="sigamesModel.parcela" />
+    <EntitySet Name="parcela_venda" EntityType="sigamesModel.parcela_venda" />
+    <EntitySet Name="pessoa" EntityType="sigamesModel.pessoa" />
+    <EntitySet Name="produto" EntityType="sigamesModel.produto" />
+    <EntitySet Name="telefone" EntityType="sigamesModel.telefone" />
+    <EntitySet Name="tipo_logradouro" EntityType="sigamesModel.tipo_logradouro" />
+    <EntitySet Name="tipo_telefone" EntityType="sigamesModel.tipo_telefone" />
+    <EntitySet Name="tipodocumento" EntityType="sigamesModel.tipodocumento" />
+    <EntitySet Name="uf" EntityType="sigamesModel.uf" />
+    <EntitySet Name="venda" EntityType="sigamesModel.venda" />
+    <AssociationSet Name="FK_Cliente_IdPessoa" Association="sigamesModel.FK_Cliente_IdPessoa">
+      <End Role="pessoa" EntitySet="pessoa" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venda_ClientePessoaIdPessoa" Association="sigamesModel.FK_Venda_ClientePessoaIdPessoa">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="venda" EntitySet="venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_IdPessoa" Association="sigamesModel.FK_Documento_IdPessoa">
+      <End Role="pessoa" EntitySet="pessoa" />
+      <End Role="documento" EntitySet="documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_IdTipoDocumento" Association="sigamesModel.FK_Documento_IdTipoDocumento">
+      <End Role="tipodocumento" EntitySet="tipodocumento" />
+      <End Role="documento" EntitySet="documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_IdPessoa" Association="sigamesModel.FK_Endereco_IdPessoa">
+      <End Role="pessoa" EntitySet="pessoa" />
+      <End Role="endereco" EntitySet="endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_IdTipoLogradouro" Association="sigamesModel.FK_Endereco_IdTipoLogradouro">
+      <End Role="tipo_logradouro" EntitySet="tipo_logradouro" />
+      <End Role="endereco" EntitySet="endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_UF" Association="sigamesModel.FK_Endereco_UF">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="endereco" EntitySet="endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fornecedor_IdPessoa" Association="sigamesModel.FK_Fornecedor_IdPessoa">
+      <End Role="pessoa" EntitySet="pessoa" />
+      <End Role="fornecedor" EntitySet="fornecedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Venda_IdProduto" Association="sigamesModel.FK_Item_Venda_IdProduto">
+      <End Role="produto" EntitySet="produto" />
+      <End Role="item_venda" EntitySet="item_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Venda_IdVenda" Association="sigamesModel.FK_Item_Venda_IdVenda">
+      <End Role="venda" EntitySet="venda" />
+      <End Role="item_venda" EntitySet="item_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parcela_Venda_ParcelaIdParcela" Association="sigamesModel.FK_Parcela_Venda_ParcelaIdParcela">
+      <End Role="parcela" EntitySet="parcela" />
+      <End Role="parcela_venda" EntitySet="parcela_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parcela_Venda_VendaIdVenda" Association="sigamesModel.FK_Parcela_Venda_VendaIdVenda">
+      <End Role="venda" EntitySet="venda" />
+      <End Role="parcela_venda" EntitySet="parcela_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefone_IdPessoa" Association="sigamesModel.FK_Telefone_IdPessoa">
+      <End Role="pessoa" EntitySet="pessoa" />
+      <End Role="telefone" EntitySet="telefone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefone_IdTipoTelefone" Association="sigamesModel.FK_Telefone_IdTipoTelefone">
+      <End Role="tipo_telefone" EntitySet="tipo_telefone" />
+      <End Role="telefone" EntitySet="telefone" />
+    </AssociationSet>
+    <AssociationSet Name="fornecedor_produto" Association="sigamesModel.fornecedor_produto">
+      <End Role="fornecedor" EntitySet="fornecedor" />
+      <End Role="produto" EntitySet="produto" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="pessoa" Relationship="sigamesModel.FK_Cliente_IdPessoa" FromRole="cliente" ToRole="pessoa" />
+    <NavigationProperty Name="venda" Relationship="sigamesModel.FK_Venda_ClientePessoaIdPessoa" FromRole="cliente" ToRole="venda" />
+  </EntityType>
+  <EntityType Name="documento">
+    <Key>
+      <PropertyRef Name="IdDocumento" />
+    </Key>
+    <Property Name="IdDocumento" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Documento1" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoDocumento" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="pessoa" Relationship="sigamesModel.FK_Documento_IdPessoa" FromRole="documento" ToRole="pessoa" />
+    <NavigationProperty Name="tipodocumento" Relationship="sigamesModel.FK_Documento_IdTipoDocumento" FromRole="documento" ToRole="tipodocumento" />
+  </EntityType>
+  <EntityType Name="endereco">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Bairro" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Cidade" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="Logradouro" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Numero" Type="Int16" Nullable="false" />
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoLogradouro" Type="Int16" Nullable="false" />
+    <Property Name="UF" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="pessoa" Relationship="sigamesModel.FK_Endereco_IdPessoa" FromRole="endereco" ToRole="pessoa" />
+    <NavigationProperty Name="tipo_logradouro" Relationship="sigamesModel.FK_Endereco_IdTipoLogradouro" FromRole="endereco" ToRole="tipo_logradouro" />
+    <NavigationProperty Name="uf1" Relationship="sigamesModel.FK_Endereco_UF" FromRole="endereco" ToRole="uf" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="pessoa" Relationship="sigamesModel.FK_Fornecedor_IdPessoa" FromRole="fornecedor" ToRole="pessoa" />
+    <NavigationProperty Name="produto" Relationship="sigamesModel.fornecedor_produto" FromRole="fornecedor" ToRole="produto" />
+  </EntityType>
+  <EntityType Name="item_venda">
+    <Key>
+      <PropertyRef Name="IdProduto" />
+      <PropertyRef Name="IdVenda" />
+    </Key>
+    <Property Name="PrecoVenda" Type="Int64" Nullable="false" />
+    <Property Name="Quantidade" Type="Int16" Nullable="false" />
+    <Property Name="IdProduto" Type="Int32" Nullable="false" />
+    <Property Name="IdVenda" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="produto" Relationship="sigamesModel.FK_Item_Venda_IdProduto" FromRole="item_venda" ToRole="produto" />
+    <NavigationProperty Name="venda" Relationship="sigamesModel.FK_Item_Venda_IdVenda" FromRole="item_venda" ToRole="venda" />
+  </EntityType>
+  <EntityType Name="parcela">
+    <Key>
+      <PropertyRef Name="IdParcela" />
+    </Key>
+    <Property Name="IdParcela" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ValorParcela" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="parcela_venda" Relationship="sigamesModel.FK_Parcela_Venda_ParcelaIdParcela" FromRole="parcela" ToRole="parcela_venda" />
+  </EntityType>
+  <EntityType Name="parcela_venda">
+    <Key>
+      <PropertyRef Name="ParcelaIdParcela" />
+      <PropertyRef Name="DataVencimento" />
+      <PropertyRef Name="VendaIdVenda" />
+    </Key>
+    <Property Name="DataBaixa" Type="DateTime" Precision="0" />
+    <Property Name="ParcelaIdParcela" Type="Int16" Nullable="false" />
+    <Property Name="DataVencimento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VendaIdVenda" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="parcela" Relationship="sigamesModel.FK_Parcela_Venda_ParcelaIdParcela" FromRole="parcela_venda" ToRole="parcela" />
+    <NavigationProperty Name="venda" Relationship="sigamesModel.FK_Parcela_Venda_VendaIdVenda" FromRole="parcela_venda" ToRole="venda" />
+  </EntityType>
+  <EntityType Name="pessoa">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DataCadastro" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cliente" Relationship="sigamesModel.FK_Cliente_IdPessoa" FromRole="pessoa" ToRole="cliente" />
+    <NavigationProperty Name="documento" Relationship="sigamesModel.FK_Documento_IdPessoa" FromRole="pessoa" ToRole="documento" />
+    <NavigationProperty Name="endereco" Relationship="sigamesModel.FK_Endereco_IdPessoa" FromRole="pessoa" ToRole="endereco" />
+    <NavigationProperty Name="fornecedor" Relationship="sigamesModel.FK_Fornecedor_IdPessoa" FromRole="pessoa" ToRole="fornecedor" />
+    <NavigationProperty Name="telefone" Relationship="sigamesModel.FK_Telefone_IdPessoa" FromRole="pessoa" ToRole="telefone" />
+  </EntityType>
+  <EntityType Name="produto">
+    <Key>
+      <PropertyRef Name="IdProduto" />
+    </Key>
+    <Property Name="IdProduto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="PrecoUnitario" Type="Double" Nullable="false" />
+    <Property Name="TipoProduto" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="item_venda" Relationship="sigamesModel.FK_Item_Venda_IdProduto" FromRole="produto" ToRole="item_venda" />
+    <NavigationProperty Name="fornecedor" Relationship="sigamesModel.fornecedor_produto" FromRole="produto" ToRole="fornecedor" />
+  </EntityType>
+  <EntityType Name="telefone">
+    <Key>
+      <PropertyRef Name="IdTelefone" />
+    </Key>
+    <Property Name="IdTelefone" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero" Type="Int64" Nullable="false" />
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoTelefone" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="pessoa" Relationship="sigamesModel.FK_Telefone_IdPessoa" FromRole="telefone" ToRole="pessoa" />
+    <NavigationProperty Name="tipo_telefone" Relationship="sigamesModel.FK_Telefone_IdTipoTelefone" FromRole="telefone" ToRole="tipo_telefone" />
+  </EntityType>
+  <EntityType Name="tipo_logradouro">
+    <Key>
+      <PropertyRef Name="IdTipoLogradouro" />
+    </Key>
+    <Property Name="IdTipoLogradouro" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="endereco" Relationship="sigamesModel.FK_Endereco_IdTipoLogradouro" FromRole="tipo_logradouro" ToRole="endereco" />
+  </EntityType>
+  <EntityType Name="tipo_telefone">
+    <Key>
+      <PropertyRef Name="IdTipoTelefone" />
+    </Key>
+    <Property Name="IdTipoTelefone" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="telefone" Relationship="sigamesModel.FK_Telefone_IdTipoTelefone" FromRole="tipo_telefone" ToRole="telefone" />
+  </EntityType>
+  <EntityType Name="tipodocumento">
+    <Key>
+      <PropertyRef Name="IdTipoDocumento" />
+    </Key>
+    <Property Name="IdTipoDocumento" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="documento" Relationship="sigamesModel.FK_Documento_IdTipoDocumento" FromRole="tipodocumento" ToRole="documento" />
+  </EntityType>
+  <EntityType Name="uf">
+    <Key>
+      <PropertyRef Name="UF1" />
+    </Key>
+    <Property Name="UF1" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="endereco" Relationship="sigamesModel.FK_Endereco_UF" FromRole="uf" ToRole="endereco" />
+  </EntityType>
+  <EntityType Name="venda">
+    <Key>
+      <PropertyRef Name="IdVenda" />
+    </Key>
+    <Property Name="IdVenda" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DataVenda" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ClientePessoaIdPessoa" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="sigamesModel.FK_Venda_ClientePessoaIdPessoa" FromRole="venda" ToRole="cliente" />
+    <NavigationProperty Name="item_venda" Relationship="sigamesModel.FK_Item_Venda_IdVenda" FromRole="venda" ToRole="item_venda" />
+    <NavigationProperty Name="parcela_venda" Relationship="sigamesModel.FK_Parcela_Venda_VendaIdVenda" FromRole="venda" ToRole="parcela_venda" />
+  </EntityType>
+  <Association Name="FK_Cliente_IdPessoa">
+    <End Role="pessoa" Type="sigamesModel.pessoa" Multiplicity="1" />
+    <End Role="cliente" Type="sigamesModel.cliente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venda_ClientePessoaIdPessoa">
+    <End Role="cliente" Type="sigamesModel.cliente" Multiplicity="0..1" />
+    <End Role="venda" Type="sigamesModel.venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="venda">
+        <PropertyRef Name="ClientePessoaIdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_IdPessoa">
+    <End Role="pessoa" Type="sigamesModel.pessoa" Multiplicity="1" />
+    <End Role="documento" Type="sigamesModel.documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="documento">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_IdTipoDocumento">
+    <End Role="tipodocumento" Type="sigamesModel.tipodocumento" Multiplicity="1" />
+    <End Role="documento" Type="sigamesModel.documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipodocumento">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Principal>
+      <Dependent Role="documento">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_IdPessoa">
+    <End Role="pessoa" Type="sigamesModel.pessoa" Multiplicity="1" />
+    <End Role="endereco" Type="sigamesModel.endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="endereco">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_IdTipoLogradouro">
+    <End Role="tipo_logradouro" Type="sigamesModel.tipo_logradouro" Multiplicity="1" />
+    <End Role="endereco" Type="sigamesModel.endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_logradouro">
+        <PropertyRef Name="IdTipoLogradouro" />
+      </Principal>
+      <Dependent Role="endereco">
+        <PropertyRef Name="IdTipoLogradouro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_UF">
+    <End Role="uf" Type="sigamesModel.uf" Multiplicity="1" />
+    <End Role="endereco" Type="sigamesModel.endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="UF1" />
+      </Principal>
+      <Dependent Role="endereco">
+        <PropertyRef Name="UF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fornecedor_IdPessoa">
+    <End Role="pessoa" Type="sigamesModel.pessoa" Multiplicity="1" />
+    <End Role="fornecedor" Type="sigamesModel.fornecedor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="fornecedor">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Venda_IdProduto">
+    <End Role="produto" Type="sigamesModel.produto" Multiplicity="1" />
+    <End Role="item_venda" Type="sigamesModel.item_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produto">
+        <PropertyRef Name="IdProduto" />
+      </Principal>
+      <Dependent Role="item_venda">
+        <PropertyRef Name="IdProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Venda_IdVenda">
+    <End Role="venda" Type="sigamesModel.venda" Multiplicity="1" />
+    <End Role="item_venda" Type="sigamesModel.item_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="venda">
+        <PropertyRef Name="IdVenda" />
+      </Principal>
+      <Dependent Role="item_venda">
+        <PropertyRef Name="IdVenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parcela_Venda_ParcelaIdParcela">
+    <End Role="parcela" Type="sigamesModel.parcela" Multiplicity="1" />
+    <End Role="parcela_venda" Type="sigamesModel.parcela_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parcela">
+        <PropertyRef Name="IdParcela" />
+      </Principal>
+      <Dependent Role="parcela_venda">
+        <PropertyRef Name="ParcelaIdParcela" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parcela_Venda_VendaIdVenda">
+    <End Role="venda" Type="sigamesModel.venda" Multiplicity="1" />
+    <End Role="parcela_venda" Type="sigamesModel.parcela_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="venda">
+        <PropertyRef Name="IdVenda" />
+      </Principal>
+      <Dependent Role="parcela_venda">
+        <PropertyRef Name="VendaIdVenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefone_IdPessoa">
+    <End Role="pessoa" Type="sigamesModel.pessoa" Multiplicity="1" />
+    <End Role="telefone" Type="sigamesModel.telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="telefone">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefone_IdTipoTelefone">
+    <End Role="tipo_telefone" Type="sigamesModel.tipo_telefone" Multiplicity="1" />
+    <End Role="telefone" Type="sigamesModel.telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_telefone">
+        <PropertyRef Name="IdTipoTelefone" />
+      </Principal>
+      <Dependent Role="telefone">
+        <PropertyRef Name="IdTipoTelefone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fornecedor_produto">
+    <End Role="fornecedor" Type="sigamesModel.fornecedor" Multiplicity="*" />
+    <End Role="produto" Type="sigamesModel.produto" Multiplicity="*" />
+  </Association>
+</Schema>
