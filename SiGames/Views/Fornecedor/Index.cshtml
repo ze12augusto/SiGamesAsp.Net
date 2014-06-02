@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SiGames.Models.fornecedor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cadastro de Fornecedores";
 }
 
-<h2>Index</h2>
+<h2>Fornecedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo", "../pessoa/create")
 </p>
 <table>
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.pessoa.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPessoa }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPessoa }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPessoa })
+            @Html.ActionLink("Editar", "../pessoa/edit", new { id=item.IdPessoa }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdPessoa }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdPessoa })
         </td>
     </tr>
 }

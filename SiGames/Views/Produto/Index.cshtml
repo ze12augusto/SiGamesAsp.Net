@@ -1,25 +1,24 @@
 ﻿@model IEnumerable<SiGames.Models.produto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cadastro de Produtos";
 }
 
-<h2>Index</h2>
+<h2>Cadastro de Produtos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo", "create")
 </p>
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IdProduto)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.PrecoUnitario)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.TipoProduto)
         </th>
@@ -28,9 +27,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdProduto)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
@@ -41,9 +37,9 @@
             @Html.DisplayFor(modelItem => item.TipoProduto)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.IdProduto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdProduto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdProduto })
+            @Html.ActionLink("Editar", "Edit", new {  id=item.IdProduto }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdProduto }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdProduto })
         </td>
     </tr>
 }

@@ -4,10 +4,10 @@
     ViewBag.Title = "Cadastro de Clientes";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Criar novo", "Create")
+    @Html.ActionLink("Criar novo", "../pessoa/create")
 </p>
 <table>
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.pessoa.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "../pessoa/edit", new { id=item.pessoa.IdPessoa }) |
-            @Html.ActionLink("Details", "../pessoa/details", new { id=item.pessoa.IdPessoa }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPessoa })
+            @Html.ActionLink("Editar", "../pessoa/edit", new { id=item.pessoa.IdPessoa }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.pessoa.IdPessoa }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdPessoa })
         </td>
     </tr>
 }
