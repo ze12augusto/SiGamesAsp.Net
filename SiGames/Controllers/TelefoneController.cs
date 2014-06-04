@@ -68,11 +68,12 @@ namespace SiGames.Controllers
 
         public ActionResult Edit(int id )
         {
-            telefone telefone = db.telefone.Find(id);
+            telefone telefone = new telefone();
             if (telefone == null)
             {
                 return HttpNotFound();
             }
+            telefone = (telefone)db.telefone.Where(c => c.IdPessoa == id).First();
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", telefone.IdPessoa);
             ViewBag.IdTipoTelefone = new SelectList(db.tipo_telefone, "IdTipoTelefone", "Descricao", telefone.IdTipoTelefone);
             return View(telefone);
@@ -88,7 +89,7 @@ namespace SiGames.Controllers
             {
                 db.Entry(telefone).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../endereco/edit", new { id = telefone.IdPessoa });
             }
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", telefone.IdPessoa);
             ViewBag.IdTipoTelefone = new SelectList(db.tipo_telefone, "IdTipoTelefone", "Descricao", telefone.IdTipoTelefone);

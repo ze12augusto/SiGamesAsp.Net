@@ -68,11 +68,12 @@ namespace SiGames.Controllers
 
         public ActionResult Edit(int id )
         {
-            documento documento = db.documento.Find(id);
+            documento documento = new documento();
             if (documento == null)
             {
                 return HttpNotFound();
             }
+            documento = (documento)db.documento.Where(c => c.IdPessoa == id).First();
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", documento.IdPessoa);
             ViewBag.IdTipoDocumento = new SelectList(db.tipodocumento, "IdTipoDocumento", "Descricao", documento.IdTipoDocumento);
             return View(documento);
@@ -88,7 +89,7 @@ namespace SiGames.Controllers
             {
                 db.Entry(documento).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../telefone/edit", new {id=documento.IdPessoa} );
             }
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", documento.IdPessoa);
             ViewBag.IdTipoDocumento = new SelectList(db.tipodocumento, "IdTipoDocumento", "Descricao", documento.IdTipoDocumento);

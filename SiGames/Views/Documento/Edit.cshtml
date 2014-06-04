@@ -5,22 +5,22 @@
 }
 
 <h2>Edit</h2>
-
+<h2>Passo 2</h2><br>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>documento</legend>
 
-        <div class="editor-label">
+        <div class="editor-label" style="display:none">
             @Html.LabelFor(model => model.IdDocumento)
         </div>
-        <div class="editor-field">
+        <div class="editor-field"style="display:none">
             @Html.EditorFor(model => model.IdDocumento)
             @Html.ValidationMessageFor(model => model.IdDocumento)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" >
             @Html.LabelFor(model => model.Documento1)
         </div>
         <div class="editor-field">
@@ -28,10 +28,10 @@
             @Html.ValidationMessageFor(model => model.Documento1)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="display:none">
             @Html.LabelFor(model => model.IdPessoa, "pessoa")
         </div>
-        <div class="editor-field">
+        <div class="editor-field"style="display:none">
             @Html.DropDownList("IdPessoa", String.Empty)
             @Html.ValidationMessageFor(model => model.IdPessoa)
         </div>

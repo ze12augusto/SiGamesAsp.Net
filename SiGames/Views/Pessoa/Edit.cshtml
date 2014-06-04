@@ -6,6 +6,7 @@
 
 <h2>Editar</h2><br>
 
+<h2>Passo 1</h2><br>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -13,10 +14,10 @@
     <fieldset>
         <legend>Pessoa</legend>
 
-        <div class="editor-label">
+        <div class="editor-label" style="display:none">
            <h3> @Html.LabelFor(model => model.IdPessoa)</h3>
         </div>
-        <div class="editor-field">
+        <div class="editor-field" style="display:none">
             @Html.EditorFor(model => model.IdPessoa)
             @Html.ValidationMessageFor(model => model.IdPessoa)
         </div>

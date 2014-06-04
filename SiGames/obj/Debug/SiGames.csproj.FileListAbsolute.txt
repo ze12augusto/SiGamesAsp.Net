@@ -93,6 +93,5 @@ C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\bin\DotNetOpenAuth.OAuth.
 C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\obj\Debug\SiGames.csprojResolveAssemblyReference.cache
 C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\obj\Debug\SiGames.dll
 C:\Users\Marco\Documents\GitHub\SiGamesAsp.Net\SiGames\obj\Debug\SiGames.pdb

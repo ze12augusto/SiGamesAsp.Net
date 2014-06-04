@@ -70,11 +70,12 @@ namespace SiGames.Controllers
 
         public ActionResult Edit(int id )
         {
-            endereco endereco = db.endereco.Find(id);
+            endereco endereco = new endereco();
             if (endereco == null)
             {
                 return HttpNotFound();
             }
+            endereco = (endereco)db.endereco.Where(c => c.IdPessoa == id).First();
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", endereco.IdPessoa);
             ViewBag.IdTipoLogradouro = new SelectList(db.tipo_logradouro, "IdTipoLogradouro", "Descricao", endereco.IdTipoLogradouro);
             ViewBag.UF = new SelectList(db.uf, "UF1", "Estado", endereco.UF);
@@ -91,7 +92,7 @@ namespace SiGames.Controllers
             {
                 db.Entry(endereco).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../pessoa/index");
             }
             ViewBag.IdPessoa = new SelectList(db.pessoa, "IdPessoa", "Nome", endereco.IdPessoa);
             ViewBag.IdTipoLogradouro = new SelectList(db.tipo_logradouro, "IdTipoLogradouro", "Descricao", endereco.IdTipoLogradouro);

@@ -86,7 +86,7 @@ namespace SiGames.Controllers
             {
                 db.Entry(pessoa).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../documento/edit", new {id=pessoa.IdPessoa} );
             }
             return View(pessoa);
         }
